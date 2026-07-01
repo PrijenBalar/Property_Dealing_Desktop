@@ -15,7 +15,16 @@ single-file installer — no XAMPP / PHP / MySQL required on the target PC.
 | `launcher.py` | Boots bundled **portable PHP** + **portable MariaDB**, then shows the site in a native **WebView2** window (browser fallback). `--selftest` boots headless and verifies pages. |
 | `KargilProperty.spec` | PyInstaller spec that freezes `launcher.py` into `KargilProperty.exe` (onefile, windowed). |
 | `setup_make_payload.py` | Builds `payload.zip` from the local `KargilProperty` app folder (excludes transient `logs/` and `data_tmp/`). |
-| `setup_installer.py` | Builds the single-file **self-extracting installer**: a Tkinter GUI that extracts the app + PHP/MariaDB runtime + database to a writable per-user folder, **registers the app with Windows** (shows in *Settings → Apps* with a working Uninstall), and creates shortcuts. Headless modes: `--selftest <dir>`, `--install <dir>`. |
+| `setup_installer.py` | Builds the single-file **self-extracting installer**: a Tkinter GUI that extracts the app + PHP/MariaDB runtime + database to a writable per-user folder (with a **"Change…" button** and auto-default to a drive that has free space), **registers the app with Windows** (shows in *Settings → Apps* with a working Uninstall), and creates Desktop/Start-Menu shortcuts. Headless modes: `--selftest <dir>`, `--install <dir>`. |
+
+## What the bundled app does
+
+- **Three roles** (stored in `tbl_admin.role`):
+  - **Admin** — approves/deletes properties and views all listings & payments (cannot add/edit).
+  - **Dealer** — adds properties with **multiple photos and videos** (with live previews); sees only their **own** listings and who purchased them.
+  - **Buyer** — self-registers, browses approved listings, and buys them.
+- **Buyer purchase flow** — demo card checkout, orders, and a "My Purchases" page.
+- One unified login/registration; all data lives in the bundled MariaDB database.
 
 ## Download
 
