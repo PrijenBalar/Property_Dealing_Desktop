@@ -1,0 +1,21 @@
+# Build outputs
+dist/
+build/
+pybuild/
+work/
+*.spec.bak
+
+# Installer payload + built binaries (published as Releases, not committed)
+payload.zip
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Temp / OS
+tmp/
+*.log
+Thumbs.db
+.DS_Store
